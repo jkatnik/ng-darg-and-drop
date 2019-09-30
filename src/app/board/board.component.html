@@ -8,11 +8,11 @@
           [cdkDropListConnectedTo]="[inProgressList, doneList]"
           [cdkDropListEnterPredicate]="canDrop">
         <h2 class="heading">TO DO</h2>
-        <div *ngFor="let task of toDoTasks"
-            cdkDrag
-            [cdkDragData]="task">
-          <app-task [task]="task"></app-task>
-        </div>
+          <app-task
+              *ngFor="let task of toDoTasks"
+              cdkDrag
+              [cdkDragData]="task"
+              [task]="task"></app-task>
       </div>
   
       <div class="col col-md-4"

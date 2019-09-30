@@ -26,7 +26,14 @@ export class BoardComponent {
   }
   
   canDrop(drag: CdkDrag<string>, drop: CdkDropList<string[]>) {
-    console.log(drop);
+    // console.log(drop);
     return drag.data !== 'FLX-333' || drop.id !== 'doneList';
+  }
+
+  onStartDragging(event): void {
+    console.log(event);
+    setTimeout(() => {
+      this.toDoTasks = ['FLX-A', 'FLX-B', 'FLX-C'];
+    }, 1000);
   }
 }
