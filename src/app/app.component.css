@@ -1,0 +1,6 @@
+.myBox {
+    display: inline-block;
+    border: 1px solid black;
+    width: 75px;
+    height: 50px;
+}

@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+      <div class="col col-md-4">
+        <h2 class="heading">TO DO</h2>
+        <div *ngFor="let task of toDoTasks">
+          <app-task [task]="task"></app-task>
+        </div>
+      </div>
+  
+      <div class="col col-md-4">
+        <h2 class="heading">IN PROGRESS</h2>
+        <div *ngFor="let task of inProgressTasks">
+          <app-task [task]="task"></app-task>
+        </div>
+      </div>
+  
+      <div class="col col-md-4">
+        <h2 class="heading">DONE</h2>
+        <div *ngFor="let task of doneTasks">
+          <app-task [task]="task"></app-task>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="mt-5">
+      <button (click)="refreshToDo()" class="btn btn-dark">Reset ToDo list</button>
+  </div>
