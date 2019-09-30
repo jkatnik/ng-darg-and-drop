@@ -5,10 +5,12 @@
           (cdkDropListDropped)="onDrop($event)"
           [cdkDropListData]="toDoTasks"
           #toDoList="cdkDropList"
-          [cdkDropListConnectedTo]="[inProgressList, doneList]">
+          [cdkDropListConnectedTo]="[inProgressList, doneList]"
+          [cdkDropListEnterPredicate]="canDrop">
         <h2 class="heading">TO DO</h2>
         <div *ngFor="let task of toDoTasks"
-            cdkDrag>
+            cdkDrag
+            [cdkDragData]="task">
           <app-task [task]="task"></app-task>
         </div>
       </div>
@@ -18,23 +20,28 @@
           (cdkDropListDropped)="onDrop($event)"
           [cdkDropListData]="inProgressTasks"
           #inProgressList="cdkDropList"
-          [cdkDropListConnectedTo]="[toDoList, doneList]">
+          [cdkDropListConnectedTo]="[toDoList, doneList]"
+          [cdkDropListEnterPredicate]="canDrop">
         <h2 class="heading">IN PROGRESS</h2>
         <div *ngFor="let task of inProgressTasks"
-            cdkDrag>
+            cdkDrag
+            [cdkDragData]="task">
           <app-task [task]="task"></app-task>
         </div>
       </div>
   
       <div class="col col-md-4"
+          id="doneList"
           cdkDropList
           (cdkDropListDropped)="onDrop($event)"
           [cdkDropListData]="doneTasks"
           #doneList="cdkDropList"
-          [cdkDropListConnectedTo]="[inProgressList, toDoList]">
+          [cdkDropListConnectedTo]="[inProgressList, toDoList]"
+          [cdkDropListEnterPredicate]="canDrop">
         <h2 class="heading">DONE</h2>
         <div *ngFor="let task of doneTasks"
             cdkDrag
+            [cdkDragData]="task"
             [cdkDragDisabled]="task ==='FLX-222'">
           <app-task [task]="task"></app-task>
         </div>

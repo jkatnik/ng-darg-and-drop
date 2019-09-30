@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, transferArrayItem, CdkDropList, CdkDrag } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-board',
@@ -23,5 +23,10 @@ export class BoardComponent {
                       event.container.data,
                       event.previousIndex,
                       event.currentIndex);
-  }  
+  }
+  
+  canDrop(drag: CdkDrag<string>, drop: CdkDropList<string[]>) {
+    console.log(drop);
+    return drag.data !== 'FLX-333' || drop.id !== 'doneList';
+  }
 }
