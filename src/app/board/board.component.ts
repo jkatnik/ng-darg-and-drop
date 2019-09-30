@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-board',
@@ -19,7 +19,9 @@ export class BoardComponent {
   }
 
   onDrop(event: CdkDragDrop<string[]>): void {
-    moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-  }
-  
+    transferArrayItem(event.previousContainer.data,
+                      event.container.data,
+                      event.previousIndex,
+                      event.currentIndex);
+  }  
 }

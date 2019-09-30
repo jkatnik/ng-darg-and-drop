@@ -3,7 +3,9 @@
       <div class="col col-md-4"
           cdkDropList
           (cdkDropListDropped)="onDrop($event)"
-          [cdkDropListData]="toDoTasks">
+          [cdkDropListData]="toDoTasks"
+          #toDoList="cdkDropList"
+          [cdkDropListConnectedTo]="[inProgressList, doneList]">
         <h2 class="heading">TO DO</h2>
         <div *ngFor="let task of toDoTasks" cdkDrag>
           <app-task [task]="task"></app-task>
@@ -13,7 +15,9 @@
       <div class="col col-md-4"
           cdkDropList
           (cdkDropListDropped)="onDrop($event)"
-          [cdkDropListData]="inProgressTasks">
+          [cdkDropListData]="inProgressTasks"
+          #inProgressList="cdkDropList"
+          [cdkDropListConnectedTo]="[toDoList, doneList]">
         <h2 class="heading">IN PROGRESS</h2>
         <div *ngFor="let task of inProgressTasks" cdkDrag>
           <app-task [task]="task"></app-task>
@@ -23,7 +27,9 @@
       <div class="col col-md-4"
           cdkDropList
           (cdkDropListDropped)="onDrop($event)"
-          [cdkDropListData]="doneTasks">
+          [cdkDropListData]="doneTasks"
+          #doneList="cdkDropList"
+          [cdkDropListConnectedTo]="[inProgressList, toDoList]">
         <h2 class="heading">DONE</h2>
         <div *ngFor="let task of doneTasks" cdkDrag>
           <app-task [task]="task"></app-task>
