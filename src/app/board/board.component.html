@@ -2,21 +2,21 @@
     <div class="row">
       <div class="col col-md-4">
         <h2 class="heading">TO DO</h2>
-        <div *ngFor="let task of toDoTasks">
+        <div *ngFor="let task of toDoTasks" cdkDrag>
           <app-task [task]="task"></app-task>
         </div>
       </div>
   
       <div class="col col-md-4">
         <h2 class="heading">IN PROGRESS</h2>
-        <div *ngFor="let task of inProgressTasks">
+        <div *ngFor="let task of inProgressTasks" cdkDrag>
           <app-task [task]="task"></app-task>
         </div>
       </div>
   
       <div class="col col-md-4">
         <h2 class="heading">DONE</h2>
-        <div *ngFor="let task of doneTasks">
+        <div *ngFor="let task of doneTasks" cdkDrag>
           <app-task [task]="task"></app-task>
         </div>
       </div>
