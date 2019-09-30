@@ -1,20 +1,29 @@
 <div class="container">
     <div class="row">
-      <div class="col col-md-4" cdkDropList>
+      <div class="col col-md-4"
+          cdkDropList
+          (cdkDropListDropped)="onDrop($event)"
+          [cdkDropListData]="toDoTasks">
         <h2 class="heading">TO DO</h2>
         <div *ngFor="let task of toDoTasks" cdkDrag>
           <app-task [task]="task"></app-task>
         </div>
       </div>
   
-      <div class="col col-md-4" cdkDropList>
+      <div class="col col-md-4"
+          cdkDropList
+          (cdkDropListDropped)="onDrop($event)"
+          [cdkDropListData]="inProgressTasks">
         <h2 class="heading">IN PROGRESS</h2>
         <div *ngFor="let task of inProgressTasks" cdkDrag>
           <app-task [task]="task"></app-task>
         </div>
       </div>
   
-      <div class="col col-md-4" cdkDropList>
+      <div class="col col-md-4"
+          cdkDropList
+          (cdkDropListDropped)="onDrop($event)"
+          [cdkDropListData]="doneTasks">
         <h2 class="heading">DONE</h2>
         <div *ngFor="let task of doneTasks" cdkDrag>
           <app-task [task]="task"></app-task>
