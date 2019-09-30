@@ -7,7 +7,8 @@
           #toDoList="cdkDropList"
           [cdkDropListConnectedTo]="[inProgressList, doneList]">
         <h2 class="heading">TO DO</h2>
-        <div *ngFor="let task of toDoTasks" cdkDrag>
+        <div *ngFor="let task of toDoTasks"
+            cdkDrag>
           <app-task [task]="task"></app-task>
         </div>
       </div>
@@ -19,7 +20,8 @@
           #inProgressList="cdkDropList"
           [cdkDropListConnectedTo]="[toDoList, doneList]">
         <h2 class="heading">IN PROGRESS</h2>
-        <div *ngFor="let task of inProgressTasks" cdkDrag>
+        <div *ngFor="let task of inProgressTasks"
+            cdkDrag>
           <app-task [task]="task"></app-task>
         </div>
       </div>
@@ -31,7 +33,9 @@
           #doneList="cdkDropList"
           [cdkDropListConnectedTo]="[inProgressList, toDoList]">
         <h2 class="heading">DONE</h2>
-        <div *ngFor="let task of doneTasks" cdkDrag>
+        <div *ngFor="let task of doneTasks"
+            cdkDrag
+            [cdkDragDisabled]="task ==='FLX-222'">
           <app-task [task]="task"></app-task>
         </div>
       </div>
